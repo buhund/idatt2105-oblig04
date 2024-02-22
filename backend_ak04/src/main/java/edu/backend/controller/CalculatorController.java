@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/calculator")
 public class CalculatorController {
 
-  // Define a logger instance for this class
+  // Defining a logger instance
   private static final Logger logger = LoggerFactory.getLogger(CalculatorController.class);
 
   @Autowired
@@ -40,9 +40,9 @@ public class CalculatorController {
       double result = calculatorService.calculate(request.getFormula());
       return ResponseEntity.ok(result);
     } catch (Exception e) {
-      // Use the logger instance to log the error
+      // Using the logger instance to log errors
       logger.error("Error calculating formula: {}", e.getMessage());
-      // Use HttpStatus enum for the status code
+      // Using HttpStatus enum for the status code
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error calculating formula");
     }
   }
